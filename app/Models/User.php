@@ -1,0 +1,127 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Notifications\CustomResetPassword;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
+class User extends Authenticatable implements MustVerifyEmail
+{
+    use HasRoles;
+    use HasApiTokens;
+    use HasFactory;
+    use HasProfilePhoto;
+    use Notifiable;
+    use TwoFactorAuthenticatable;
+    use SoftDeletes;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        //'force_password_change',
+        'status',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        //'force_password_change' => 'boolean',
+        'status' => 'boolean',
+    ];
+
+    protected $dates = [
+        'deleted_at',
+    ];
+
+    protected $appends = [
+        'profile_photo_url',
+    ];
+
+    public function adminlte_image()
+    {
+        if ($this->profile_photo_path) {
+            return url($this->profile_photo_url);
+        }
+        return asset('assets/images/profile/user.jpg');
+    }
+
+    public function adminlte_desc()
+    {
+        $role = $this->roles->pluck('name')->first();
+        if ($role) {
+            return ucfirst($role); // Muestra: Admin, Editor, etc.
+        }
+        return "Bach. Ingeniería De Sistemas E Informática - $this->name";
+    }
+
+    public function adminlte_profile_url()
+    {
+        return 'user/profile';
+    }
+
+    /*
+    @Author: Edwin Yoner
+    @Date: 2025-10-01
+    @Change: Mutador y accesor para que el atributo name
+            siempre se guarde y se muestre con formato título
+            (Primera letra en mayúscula de cada palabra).
+    */
+    protected function name(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => $value ? ucwords(strtolower($value)) : null,
+            set: fn($value) => $value ? ucwords(strtolower($value)) : null,
+        );
+    }
+
+    /**
+     * Send the email verification notification.
+     * Sobrescribimos para evitar envío automático
+     */
+
+    public function sendEmailVerificationNotification()
+    {
+        // No hacer nada - el correo se envía desde el controlador
+    }
+
+    /*
+    @Author: Edwin Yoner
+    @Date: 2025-09-12
+    @Change: Sobrescribimos para usar nuestra notificación personalizada
+    */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new CustomResetPassword($token));
+    }
+}
