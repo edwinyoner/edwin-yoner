@@ -131,7 +131,7 @@
             <p>
                 &copy; {{ date('Y') }}
                 <span class="footer-copyright-name">
-                    {{ profile('full_name') ?? 'Edwin Yoner Flores Rupay' }}
+                    {{ profile('full_name') ?? 'Edwin Yoner' }}
                 </span>.
                 {{ __('messages.all_rights_reserved') }}
             </p>

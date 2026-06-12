@@ -277,4 +277,6 @@ return [
     'completed_projects' => 'completed projects',
 
     'view_details' => 'View Details',
+
+    'no_projects_yet' => 'No projects available yet',
 ];

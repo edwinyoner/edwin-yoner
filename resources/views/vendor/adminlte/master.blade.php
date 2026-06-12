@@ -13,8 +13,8 @@
     {{-- ============================================ --}}
     {{-- META TAGS DEL DESARROLLADOR --}}
     {{-- ============================================ --}}
-    <meta name="author" content="{{ $profileSettings->full_name ?? 'Edwin Yoner Flores Rupay' }}">
-    <meta name="developer" content="{{ $profileSettings->full_name ?? 'Edwin Yoner Flores Rupay' }}">
+    <meta name="author" content="{{ $profileSettings->full_name ?? 'Edwin Yoner' }}">
+    <meta name="developer" content="{{ $profileSettings->full_name ?? 'Edwin Yoner' }}">
     <meta name="description" content="{{ $profileSettings->professional_title ?? 'Bach. Ingeniería De Sistemas E Informática' }}">
     @if($profileSettings?->email)
         <meta name="contact" content="{{ $profileSettings->email }}">
@@ -31,7 +31,7 @@
     {{-- ============================================ --}}
     <title>
         @yield('title_prefix', config('adminlte.title_prefix', ''))
-        @yield('title', config('adminlte.title', $profileSettings->full_name ?? 'Edwin Yoner Flores Rupay'))
+        @yield('title', config('adminlte.title', $profileSettings->full_name ?? 'Edwin Yoner'))
         @yield('title_postfix', config('adminlte.title_postfix', ''))
     </title>
 

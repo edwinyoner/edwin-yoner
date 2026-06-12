@@ -84,7 +84,7 @@
 
                             <x-adminlte-input name="full_name"
                                               label="Nombre Completo"
-                                              placeholder="Edwin Yoner Flores Rupay"
+                                              placeholder="Edwin Yoner"
                                               value="{{ old('full_name', $profile->full_name) }}"
                                               required>
                                 <x-slot name="prependSlot">

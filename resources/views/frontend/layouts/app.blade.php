@@ -40,7 +40,7 @@
         {{-- ============================================ --}}
         {{-- TITLE Y META TAGS DINÁMICOS --}}
         {{-- ============================================ --}}
-        {{-- 📚 EXPLICACIÓN: __() es el helper de traducción de Laravel --}}
+        {{-- EXPLICACIÓN: __() es el helper de traducción de Laravel --}}
         {{-- Busca en lang/es/messages.php o lang/en/messages.php --}}
 
         <title>
