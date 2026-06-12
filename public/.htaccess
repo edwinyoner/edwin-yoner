@@ -47,3 +47,11 @@ Options -Indexes
     Order allow,deny
     Deny from all
 </FilesMatch>
+
+# ============================================
+# UPLOAD LIMITS
+# ============================================
+php_value upload_max_filesize 20M
+php_value post_max_size 24M
+php_value memory_limit 128M
+php_value max_execution_time 300

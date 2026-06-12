@@ -28,7 +28,7 @@ class SocialLinkRequest extends FormRequest
             'name' => [
                 'required',
                 'string',
-                'min:3',
+                'min:1',
                 'max:100',
                 Rule::unique('social_links', 'name')->ignore($socialLinkId),
             ],
@@ -63,7 +63,7 @@ class SocialLinkRequest extends FormRequest
         return [
             'name.required' => 'El nombre de la red social es obligatorio.',
             'name.string' => 'El nombre debe ser texto.',
-            'name.min' => 'El nombre debe tener al menos 3 caracteres.',
+            'name.min' => 'El nombre debe tener al menos 1 caracter.',
             'name.max' => 'El nombre no puede exceder los 100 caracteres.',
             'name.unique' => 'Ya existe una red social con este nombre.',
             

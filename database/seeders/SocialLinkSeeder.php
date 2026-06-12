@@ -66,7 +66,7 @@ class SocialLinkSeeder extends Seeder
             [
                 'name' => 'X',
                 'icon' => 'fab fa-x-twitter',
-                'url' => 'https://x.com/edwinyoner', 
+                'url' => 'https://x.com/edwin_yoner', 
                 'color' => '#000000',
                 'is_active' => true,
             ],
@@ -77,7 +77,7 @@ class SocialLinkSeeder extends Seeder
             [
                 'name' => 'Instagram',
                 'icon' => 'fab fa-instagram',
-                'url' => 'https://www.instagram.com/edwin.yoner', 
+                'url' => 'https://www.instagram.com/edwin_yoner', 
                 'color' => '#E4405F',
                 'is_active' => true,
             ],
