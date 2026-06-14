@@ -11,7 +11,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ContactFormSubmitted extends Mailable implements ShouldQueue
+class ContactFormSubmitted extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -46,7 +46,7 @@ class ContactFormSubmitted extends Mailable implements ShouldQueue
         
         return new Envelope(
             from: new Address(
-                $portfolio->email_contact ?? 'noreply@portafolio.com', 
+                config('mail.from.address'), // Email configurado en .env
                 $ownerName . ' - Formulario de Contacto'
             ),
             replyTo: [
