@@ -151,7 +151,7 @@ class ContactController extends Controller
             // Lista de emails (puedes agregar más o configurar en .env)
             $recipients = array_filter([
                 $portfolioEmail,
-                config('mail.from.address'), // Email configurado en .env
+                //config('mail.from.address'), // Email configurado en .env
                 // Puedes agregar emails adicionales:
                 // 'edwinyoner@gmail.com',
             ]);

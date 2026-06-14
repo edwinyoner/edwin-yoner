@@ -241,7 +241,7 @@ class TechnologySeeder extends Seeder
                 'icon_class'             => null,
                 'color'                  => '#DD0031',
                 'proficiency_level'      => 'intermedio',
-                'proficiency_percentage' => 60,
+                'proficiency_percentage' => 50,
                 'is_active'              => true,
             ],
             [
@@ -252,7 +252,7 @@ class TechnologySeeder extends Seeder
                 'icon_class'             => null,
                 'color'                  => '#6DB33F',
                 'proficiency_level'      => 'basico',
-                'proficiency_percentage' => 50,
+                'proficiency_percentage' => 30,
                 'is_active'              => true,
             ],
             [
@@ -263,7 +263,7 @@ class TechnologySeeder extends Seeder
                 'icon_class'             => null,
                 'color'                  => '#00B4E8',
                 'proficiency_level'      => 'basico',
-                'proficiency_percentage' => 50,
+                'proficiency_percentage' => 30,
                 'is_active'              => true,
             ],
             // [

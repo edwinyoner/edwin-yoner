@@ -216,7 +216,7 @@
                                         class="form-control @error('proficiency_level') is-invalid @enderror"
                                         required>
                                     @foreach([
-                                        'basico'     => ['label' => 'Básico',     'color' => 'info',    'range' => '1–33%'],
+                                        'basico'     => ['label' => 'Básico',     'color' => 'info',    'range' => '0–33%'],
                                         'intermedio' => ['label' => 'Intermedio', 'color' => 'primary', 'range' => '34–66%'],
                                         'avanzado'   => ['label' => 'Avanzado',   'color' => 'warning', 'range' => '67–100%'],
                                     ] as $value => $item)
